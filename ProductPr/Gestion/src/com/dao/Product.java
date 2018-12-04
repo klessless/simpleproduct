@@ -1,6 +1,6 @@
 package com.dao;
 
-public class Produit {
+public class Product {
 	
 	private Long id;
 	private String name,description,price;
@@ -11,19 +11,19 @@ public class Produit {
 	 * 
 	 */
 	
-	public Produit(String name, String description, String price) {
+	public Product(String name, String description, String price) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.price = price;
 	}
 	
-	public Produit() {
+	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Produit(Long id, String name, String description, String price) {
+	public Product(Long id, String name, String description, String price) {
 		super();
 		this.id = id;
 		this.name = name;
