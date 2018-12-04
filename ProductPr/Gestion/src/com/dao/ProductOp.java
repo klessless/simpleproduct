@@ -38,8 +38,4 @@ public class ProductOp {
 		}
 	}
 	
-	public ArrayList<Product> getAllProducts () {
-		return listProducts;
-	}
-	
 }

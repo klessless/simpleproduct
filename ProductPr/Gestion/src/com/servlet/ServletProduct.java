@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.Product;
+import com.dao.ProductOp;
+
 /**
  * Servlet implementation class ServletProduct
  */
@@ -26,10 +29,25 @@ public class ServletProduct extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String name = request.getParameter("Prodname");
 		String description = request.getParameter("Proddescription");
 		String price = request.getParameter("Prodprice");
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		ProductOp operation = new ProductOp();
+		Product p = new Product(name, description, price);
+		ProductBean bean = new ProductBean();
+		
+		operation.addProduct(p);
+		bean.setListProduct(operation.getListProducts());
+		
+		request.setAttribute("modele", bean);
+		request.getRequestDispatcher("Prod.jsp").forward(request,response);
+		
+		
+		
+		
+		
 	}
 
 	/**

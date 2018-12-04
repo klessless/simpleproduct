@@ -22,7 +22,7 @@ public class ProductTest {
 		op.addProduct(p2);
 		
 		
-		Iterator<Product> list = op.getAllProducts().iterator();
+		Iterator<Product> list = op.getListProducts().iterator();
 		while(list.hasNext()) {
 			p=list.next();
 			System.out.println(p.toString());
