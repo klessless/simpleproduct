@@ -8,19 +8,19 @@
 </head>
 <body>
 	<h3>Products</h3>
-	<form action="" method="post">
+	<form action="productGet" method="post">
 	<table>
 		<tr>
 			<td>Name</td>
-			<td><input type="text" name="Product name"/></td>
+			<td><input type="text" name="Prodname"/></td>
 		</tr>
 		<tr>
 			<td>Description</td>
-			<td><input type="text" name="Product description"/></td>
+			<td><input type="text" name="Proddescription"/></td>
 		</tr>
 		<tr>
 			<td>Price</td>
-			<td><input type="text" name="Product price"/></td>
+			<td><input type="text" name="Prodprice"/></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" value="OK"/></td>
