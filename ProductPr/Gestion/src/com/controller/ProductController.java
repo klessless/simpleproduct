@@ -1,4 +1,4 @@
-package com.servlet;
+package com.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -12,16 +12,16 @@ import com.dao.Product;
 import com.dao.ProductOp;
 
 /**
- * Servlet implementation class ServletProduct
+ * Servlet implementation class ProductController
  */
-@WebServlet("/ServletProduct")
-public class ServletProduct extends HttpServlet {
+@WebServlet("/ProductController")
+public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private ProductOp operation;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletProduct() {
+    public ProductController() {
         super();
         // TODO Auto-generated constructor stub
     }
