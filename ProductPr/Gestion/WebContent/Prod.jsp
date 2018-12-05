@@ -1,3 +1,6 @@
+<%@page import="java.util.Iterator"%>
+<%@ page import="com.bean.ProductBean" %>
+<%@ page import="com.dao.Product" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,6 +10,15 @@
 <title>Products list</title>
 </head>
 <body>
+	<%
+		ProductBean bean ;
+		if(request.getAttribute("modele") != null){
+			bean = (ProductBean)request.getAttribute("modele");
+		}else{
+			bean = new ProductBean();
+		}
+
+	%>
 	<h3>Products</h3>
 	<form action="productGet" method="post">
 	<table>
@@ -28,5 +40,27 @@
 		
 	</table>
 	</form>
+	<table border="1" width="70%">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Price</th>
+	</tr>
+	<%
+		Iterator<Product> productList = bean.getListProduct().iterator();
+		while(productList.hasNext()){
+			Product p = productList.next();
+			 %>
+	<tr>
+		<td><%= p.getId() %></td>
+		<td><%= p.getName() %></td>
+		<td><%= p.getDescription() %></td>
+		<td><%= p.getPrice() %></td>
+	</tr>
+		<% }
+	
+	%>
+	</table>
 </body>
 </html>

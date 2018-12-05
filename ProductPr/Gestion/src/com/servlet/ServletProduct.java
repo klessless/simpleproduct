@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bean.ProductBean;
 import com.dao.Product;
 import com.dao.ProductOp;
 
@@ -16,7 +17,7 @@ import com.dao.ProductOp;
 @WebServlet("/ServletProduct")
 public class ServletProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private ProductOp operation;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -34,8 +35,7 @@ public class ServletProduct extends HttpServlet {
 		String description = request.getParameter("Proddescription");
 		String price = request.getParameter("Prodprice");
 		
-		ProductOp operation = new ProductOp();
-		Product p = new Product(name, description, price);
+		Product p = new Product(1L,name, description, price);
 		ProductBean bean = new ProductBean();
 		
 		operation.addProduct(p);
@@ -43,10 +43,6 @@ public class ServletProduct extends HttpServlet {
 		
 		request.setAttribute("modele", bean);
 		request.getRequestDispatcher("Prod.jsp").forward(request,response);
-		
-		
-		
-		
 		
 	}
 
@@ -58,4 +54,10 @@ public class ServletProduct extends HttpServlet {
 		doGet(request, response);
 	}
 
+	@Override
+	public void init() throws ServletException {
+		operation = new ProductOp();
+	}
+	
+	
 }

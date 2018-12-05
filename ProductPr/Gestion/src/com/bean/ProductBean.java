@@ -1,4 +1,4 @@
-package com.servlet;
+package com.bean;
 
 import java.util.ArrayList;
 
