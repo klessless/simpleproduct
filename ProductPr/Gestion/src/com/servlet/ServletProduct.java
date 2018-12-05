@@ -31,19 +31,25 @@ public class ServletProduct extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String name = request.getParameter("Prodname");
-		String description = request.getParameter("Proddescription");
-		String price = request.getParameter("Prodprice");
+		if(request.getParameter("action") != null) {
+			
+			operation.removeProduct(Long.parseLong(request.getParameter("id")));
+			
+		}else {
+			
+			String name = request.getParameter("Prodname");
+			String description = request.getParameter("Proddescription");
+			double price = Double.parseDouble(request.getParameter("Prodprice"));
+			
+			Product p = new Product(1L,name, description, price);
+			operation.addProduct(p);
+			
+		}
 		
-		Product p = new Product(1L,name, description, price);
 		ProductBean bean = new ProductBean();
-		
-		operation.addProduct(p);
 		bean.setListProduct(operation.getListProducts());
-		
 		request.setAttribute("modele", bean);
 		request.getRequestDispatcher("Prod.jsp").forward(request,response);
-		
 	}
 
 	/**

@@ -11,9 +11,9 @@ public class ProductTest {
 		Product p = new Product();
 		ProductOp op = new ProductOp();
 		
-		Product p1 = new Product(1L, "Product1", "The first product on the list", "10");
-		Product p2 = new Product(1L, "Product2", "The second product on the list", "200");
-		Product p3 = new Product(1L, "Product3", "The third product on the list", "3000");
+		Product p1 = new Product(1L, "Product1", "The first product on the list", 10);
+		Product p2 = new Product(1L, "Product2", "The second product on the list", 200);
+		Product p3 = new Product(1L, "Product3", "The third product on the list", 3000);
 		
 		op.addProduct(p1);
 		op.addProduct(p2);

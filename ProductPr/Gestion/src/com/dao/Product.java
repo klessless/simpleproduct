@@ -3,7 +3,8 @@ package com.dao;
 public class Product {
 	
 	private Long id;
-	private String name,description,price;
+	private String name,description;
+	private double price;
 	
 	
 	/**
@@ -11,7 +12,7 @@ public class Product {
 	 * 
 	 */
 	
-	public Product(String name, String description, String price) {
+	public Product(String name, String description, double price) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -23,7 +24,7 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Product(Long id, String name, String description, String price) {
+	public Product(Long id, String name, String description, double price) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -61,11 +62,11 @@ public class Product {
 		this.description = description;
 	}
 	
-	public String getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 	
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

@@ -1,3 +1,4 @@
+<%@page import="com.dao.ProductOp"%>
 <%@page import="java.util.Iterator"%>
 <%@ page import="com.bean.ProductBean" %>
 <%@ page import="com.dao.Product" %>
@@ -15,7 +16,10 @@
 		if(request.getAttribute("modele") != null){
 			bean = (ProductBean)request.getAttribute("modele");
 		}else{
+			ProductOp operation = new ProductOp();
 			bean = new ProductBean();
+			bean.setListProduct(operation.getListProducts());
+			
 		}
 
 	%>
@@ -46,6 +50,7 @@
 		<th>Name</th>
 		<th>Description</th>
 		<th>Price</th>
+		<th>Options</th>
 	</tr>
 	<%
 		Iterator<Product> productList = bean.getListProduct().iterator();
@@ -57,6 +62,13 @@
 		<td><%= p.getName() %></td>
 		<td><%= p.getDescription() %></td>
 		<td><%= p.getPrice() %></td>
+		<td>
+			<form action="productGet" method="post">
+				<input type="hidden" name="id" value="<%= p.getId() %>"/>
+				<input type="hidden" name="action" value="Delete"/>
+				<input type="submit" value="Delete"/>
+			</form>
+		</td>
 	</tr>
 		<% }
 	
