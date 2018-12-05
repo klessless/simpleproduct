@@ -18,7 +18,7 @@
 		}else{
 			ProductOp operation = new ProductOp();
 			bean = new ProductBean();
-			bean.setListProduct(operation.getListProducts());
+			bean.setListProduct(operation.getListProducts()); 
 			
 		}
 
