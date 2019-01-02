@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 import com.dao.Product;
 
-public class ProductBean {
+public class ProductBean{
 	
 	private Product product = new Product();
 	private ArrayList<Product> listProduct = new ArrayList<Product>();
 	
 	
-	public Product getProduct() {
+	public Product getProduct(){
 		return product;
 	}
 	
